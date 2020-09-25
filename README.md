@@ -1,4 +1,4 @@
-#Enrich IOC
+# Enrich IOC
 
 This python script is useful to enrich the Domain and IP Address IOCs with Passive Total aka RiskIQ & VirusTotal API.
 
