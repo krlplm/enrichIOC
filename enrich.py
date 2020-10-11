@@ -13,7 +13,7 @@ from requests.auth import HTTPBasicAuth
 from argparse import ArgumentParser
 from selenium import webdriver
 from time import sleep
-from config import user, pwd, apikey
+from config import user, pwd, apikey    
 
 def fetch_details(urls, user, pwd, entity):
     #global declaration below so that these variables are available for code inside main()
@@ -195,15 +195,20 @@ def lst_parse(lst, urls, user, pwd, apikey):
                     try:
                         attr = vt_dict['attributes']
                         cats = attr['categories']
+                        stats = attr['last_analysis_stats']
                         # print(cats)
                         cats = str(cats).replace(', ', '|').replace('{', '').replace('}', '').replace('\'', '')
+                        stats = str(stats).replace(', ', ';').replace('{', '').replace('}','').replace('\'', '')
                     except:
                         cats = 'null'
+                        stats = 'null'
                 else:
                     cats = 'VT Error'
+                    stats = 'VT Error'
 
+                vt_data = cats + '|' + stats
                 print(entity, classification, sinkhole, everCompromised, count_of_subdom, dynamicDns, mal_results,
-                      osint_results, cats, val, sep=",")
+                      osint_results, vt_data, val, sep=",")
 
 
 def cmd_parse(cmd, urls, user, pwd, apikey):
