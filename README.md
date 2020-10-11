@@ -24,3 +24,13 @@ Most other package dependencies are by default available with the python install
   
 - Run the script as below for enriching a single IP or a domain,  
 ```python enrich.py -c <IP or Domain>```
+
+## Gotchas:
+
+- In the event, the Site Review page prompts the captcha window, open up a new tab and enter the capctha manually.
+- Due to time crunch, I haven't handled Capctha in my code but definitely on the feature list
+
+## Benchmarking:
+
+- Currently, I've tested like 200 domains in a list which are handled by the site review with out any issues. However, most of my runs have seen the captcha prompt in between 200-220.
+- Following the above hack may be of help but may impact 3-5 IOCs while you perform this.
